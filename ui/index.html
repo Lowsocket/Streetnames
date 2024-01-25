@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Space-Streetnames</title>
+		<style>
+			@font-face {font-family: 'Montserrat-Bold'; src: url('fonts/Montserrat-Bold.ttf')}
+
+			.watermark {
+				position: fixed;
+				top: 0%;
+				right: 0%;
+				z-index: 99;
+				opacity: 0.8;
+				font-size: 0.7rem;
+				text-align: right;
+				font-family: "Montserrat-Bold";
+				font-weight: normal;
+				color: rgb(210, 210, 210);
+				text-shadow: 2px 2px 4px #000000;
+			}
+
+			.postalCode {
+				position: fixed;
+				bottom: 2.9%;
+                left: 16%;
+				z-index: 99;
+				opacity: 0.8;
+				text-align: left;
+				font-size: 1.0rem;
+				font-weight: normal;
+				font-family: "Montserrat-Bold";
+				color: rgb(255, 255, 255);
+				text-shadow: 2px 2px 4px #000000;
+			}
+
+			.streetName {
+				position: fixed;
+				bottom: 1.4%;
+                left: 16%;
+				z-index: 99;
+				opacity: 0.8;
+				text-align: left;
+				font-size: 1.0rem;
+				font-weight: normal;
+				font-family: "Montserrat-Bold";
+				color: rgb(255, 255, 255);
+				text-shadow: 2px 2px 4px #000000;
+			}
+		</style>
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			window.addEventListener("message", function(event) {
+				var item = event.data;
+
+
+				if (item.postalCode != null) {
+					let streetElem = document.getElementById("postal-code");
+
+					streetElem.innerHTML = item.postalCode;
+				}
+
+
+				if (item.streetName != null) {
+					if (item.streetName != undefined) {
+						let crossingElem = document.getElementById("crossing-name");
+						crossingElem.innerHTML = item.streetName;
+					}
+				}
+            
+
+				if (item.time != null) {
+					let timeElem = document.getElementById("time");
+					timeElem.innerHTML = "Servername | " + item.time;
+				}
+
+
+			});
+		</script>
+	</head>
+	<body>
+		<div class="watermark">
+			<div id="time"></div>
+		</div>
+		<div class="postalCode">
+			<div id="postal-code">6969</div>
+		</div>
+		<div class="streetName">
+			<div id="crossing-name">Made By Kirill | Space Development</div>
+		</div>
+</html>
